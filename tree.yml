@@ -1,0 +1,18 @@
+#!/usr/bin/ansible-playbook --inventory=inventory
+- name: ' Sparta | Devkit | tree.yml'
+  hosts: local
+  vars_files:
+    - 'vars/global.yml'
+    - 'vars/git.yml'
+  vars:
+    module: "tree"
+    ansible_name_module: "{{ ansible_name }} | {{ module }}"
+  tasks:
+    - name: '{{ ansible_name_module }} | file | Create Directory Structure' 
+      file:
+        state: directory
+        path: '{{ item.path }}'
+        mode: '{{ item.mode }}'
+        recurse: yes
+      with_items:
+        - { mode: '0775', path: '{{ dir_sparta }}/Git' }
