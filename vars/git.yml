@@ -3,6 +3,10 @@ keyfile: '{{ local_home }}/.ssh/id_rsa_sparta'
 git_branch: master
 
 # Ansible Git Repos
+url_git_konductor: '{{ git_address }}CodeSparta/Konductor.git'
+dir_git_konductor: "{{ dir_sparta }}/Git/Konductor"
+url_git_konductor_go: '{{ git_address }}CodeSparta/konductor-go.git'
+dir_git_konductor_go: "{{ dir_sparta }}/Git/konductor-go"
 url_git_maestro_infra: '{{ git_address }}CodeSparta/maestro-infra.git'
 dir_git_maestro_infra: "{{ dir_sparta }}/Git/maestro-infra"
 url_git_maestro_apps: '{{ git_address }}CodeSparta/maestro-apps.git'
@@ -24,6 +28,14 @@ dir_devkit_vpc: "{{ dir_sparta }}/Git/devkit-vpc"
 
 # Git Clone Items
 basicrepos:
+  - repo: "{{ url_git_konductor }}"
+    dest: "{{ dir_git_konductor }}"
+    branch: "{{ git_branch }}"
+    key_file: "{{ keyfile }}"
+  - repo: "{{ url_git_konductor_go }}"
+    dest: "{{ dir_git_konductor_go }}"
+    branch: "{{ git_branch }}"
+    key_file: "{{ keyfile }}"
   - repo: "{{ url_git_codectlio }}"
     dest: "{{ dir_git_codectlio }}"
     branch: "{{ git_branch }}"
