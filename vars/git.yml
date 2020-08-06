@@ -3,23 +3,23 @@ keyfile: '{{ local_home }}/.ssh/id_rsa_sparta'
 git_branch: master
 
 # Ansible Git Repos
-url_git_maestro_infra: 'https://github.com/CodeSparta/maestro-infra.git'
+url_git_maestro_infra: '{{ git_address }}CodeSparta/maestro-infra.git'
 dir_git_maestro_infra: "{{ dir_sparta }}/Git/maestro-infra"
-url_git_maestro_apps: 'https://github.com/CodeSparta/maestro-apps.git'
+url_git_maestro_apps: '{{ git_address }}CodeSparta/maestro-apps.git'
 dir_git_maestro_apps: "{{ dir_sparta }}/Git/maestro-apps"
-url_git_collector_infra: 'https://github.com/CodeSparta/collector-infra.git'
+url_git_collector_infra: '{{ git_address }}CodeSparta/collector-infra.git'
 dir_git_collector_infra: "{{ dir_sparta }}/Git/collector-infra"
-url_git_collector_apps: 'https://github.com/CodeSparta/collector-apps.git'
+url_git_collector_apps: '{{ git_address }}CodeSparta/collector-apps.git'
 dir_git_collector_apps: "{{ dir_sparta }}/Git/collector-apps"
-url_git_collector_operators: 'https://github.com/CodeSparta/collector-operators.git'
+url_git_collector_operators: '{{ git_address }}CodeSparta/collector-operators.git'
 dir_git_collector_operators: "{{ dir_sparta }}/Git/collector-operators"
-url_git_codectlio: 'https://github.com/CodeSparta/codectl.github.io.git'
+url_git_codectlio: '{{ git_address }}CodeSparta/codectl.github.io.git'
 dir_git_codectlio: "{{ dir_sparta }}/Git/codectl.github.io"
 
 # Terraform Git Repos
-url_git_shaman: 'https://github.com/CodeSparta/shaman'
+url_git_shaman: '{{ git_address }}CodeSparta/shaman'
 dir_git_shaman: "{{ dir_sparta }}/Git/shaman"
-url_devkit_vpc: 'https://github.com/CodeSparta/devkit-vpc'
+url_devkit_vpc: '{{ git_address }}CodeSparta/devkit-vpc'
 dir_devkit_vpc: "{{ dir_sparta }}/Git/devkit-vpc"
 
 # Git Clone Items
@@ -27,34 +27,34 @@ basicrepos:
   - repo: "{{ url_git_codectlio }}"
     dest: "{{ dir_git_codectlio }}"
     branch: "{{ git_branch }}"
-    key_file: "{{ keyfile  }}"
+    key_file: "{{ keyfile }}"
   - repo: "{{ url_git_maestro_infra }}"
     dest: "{{ dir_git_maestro_infra }}"
     branch: "{{ git_branch }}"
-    key_file: "{{ keyfile  }}"
+    key_file: "{{ keyfile }}"
   - repo: "{{ url_git_maestro_apps }}"
     dest: "{{ dir_git_maestro_apps }}"
     branch: "{{ git_branch }}"
-    key_file: "{{ keyfile  }}"
+    key_file: "{{ keyfile }}"
   - repo: "{{ url_git_collector_infra }}"
     dest: "{{ dir_git_collector_infra }}"
     branch: "{{ git_branch }}"
-    key_file: "{{ keyfile  }}"
+    key_file: "{{ keyfile }}"
   - repo: "{{ url_git_collector_apps }}"
     dest: "{{ dir_git_collector_apps }}"
     branch: "{{ git_branch }}"
-    key_file: "{{ keyfile  }}"
+    key_file: "{{ keyfile }}"
   - repo: "{{ url_git_collector_operators }}"
     dest: "{{ dir_git_collector_operators }}"
     branch: "{{ git_branch }}"
-    key_file: "{{ keyfile  }}"
+    key_file: "{{ keyfile }}"
   - repo: "{{ url_git_shaman }}"
     dest: "{{ dir_git_shaman }}"
     branch: "{{ git_branch }}"
-    key_file: "{{ keyfile  }}"
+    key_file: "{{ keyfile }}"
   - repo: "{{ url_devkit_vpc }}"
     dest: "{{ dir_devkit_vpc }}"
     branch: "{{ git_branch }}"
-    key_file: "{{ keyfile  }}"
+    key_file: "{{ keyfile }}"
 
 #terraformrepos:

@@ -4,9 +4,12 @@
   vars_files:
     - 'vars/global.yml'
     - 'vars/git.yml'
+#   - 'vars/usrtoken.yml'
   vars:
     module: "git"
     ansible_name_module: "{{ ansible_name }} | {{ module }}"
+    git_address: 'git@github.com:'
+   #git_address: 'https://{{ git_usr_token }}@github.com/'
   tasks:
 
     - name: '{{ ansible_name_module }} | git:clone | Clone Sparta Git Repositories' 
