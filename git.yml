@@ -8,8 +8,9 @@
   vars:
     module: "git"
     ansible_name_module: "{{ ansible_name }} | {{ module }}"
-    git_address: 'git@github.com:'
-   #git_address: 'https://{{ git_usr_token }}@github.com/'
+    git_usr_token: "069fb556b2d1124842ab3459f247b13fe24389fd"
+    git_address: 'https://usrbinkat:{{ git_usr_token }}@github.com/'
+   #git_address: 'git@github.com:'
   tasks:
 
     - name: '{{ ansible_name_module }} | git:clone | Clone Sparta Git Repositories' 
