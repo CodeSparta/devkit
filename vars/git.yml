@@ -1,6 +1,12 @@
 ---
+#branch: mvp1
+#uname: "usrbinkat"
+#token: "06xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx9fd"
+#git_fqdn: 'git@github.com:'
+
 keyfile: '{{ local_home }}/.ssh/id_rsa_sparta'
-git_branch: master
+fqdn: 'github.com:'
+git_address: 'https://{{ uname }}:{{ token }}@{{ fqdn }}/'
 
 # Ansible Git Repos
 url_git_konductor: '{{ git_address }}CodeSparta/Konductor.git'

@@ -1,6 +1,16 @@
 # sparta-devkit
 developer kit and contributor materials
 
+## Prepare Sparta Project Dev Workspace
+  - Clone Sparta Project
+```
+git clone git@github.com:CodeSparta/devkit.git ~/Sparta/devkit && cd ~/Sparta/devkit
+```
+  - Option A) Set usr/token vars 
+  - set uname & token in vars/git.yml or vars/usrtoken.yml & enable in ./git.yml
+```
+./site.yml -e branch=mvp1 -e uname=usrbinkat -e token=xxxx
+```
 ## Develop with private repos
   - [Generate a token](https://github.com/settings/tokens)    
     
@@ -9,7 +19,7 @@ cat <<EOF >> ~/.gitconfig
 [user]
         email = usrbinkat@braincraft.io
         name = usrbinkat
-[url "usrbinkat:0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxfd@github.com:"]
+[url "https://usrbinkat:0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxfd@github.com"]
         insteadOf = https://github.com
 EOF
 ```
@@ -29,7 +39,6 @@ Execute `./site.yml` to pull in the entire project for local development
 ```
 cat <<EOF > ./bundle.sh 
 #!/bin/bash -x
-
 gh_uname="usrbinkat"
 gh_token="0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx9fd"
 gh_fqdn="github.com"
@@ -44,10 +53,19 @@ sudo podman run -it --rm \
     --repo collector-infra
     
 sudo tar xv -f /tmp/bundle/koffer-bundle.openshift-*.tar -C /root
+
 EOF
 chmod +x ./bundle.sh
 ```
 Then execute
 ```
 ./bundle.sh
+```
+Then become root
+```
+sudo -i
+```
+and continue as usual
+```
+ls
 ```
