@@ -6,6 +6,9 @@ developer kit and contributor materials
     
 ```
 cat <<EOF >> ~/.gitconfig
+[user]
+        email = usrbinkat@braincraft.io
+        name = usrbinkat
 [url "usrbinkat:0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxfd@github.com:"]
         insteadOf = https://github.com
 EOF
@@ -21,3 +24,30 @@ Execute Koffer with option:
 
 [Configure devkit to use the token](https://github.com/CodeSparta/devkit/blob/7b60b1947a401bfa4566f4abafb911d5280fcfa5/git.yml#L12)
 Execute `./site.yml` to pull in the entire project for local development
+
+## Run koffer container with credentials
+```
+cat <<EOF > ./bundle.sh 
+#!/bin/bash -x
+
+gh_uname="usrbinkat"
+gh_token="0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx9fd"
+gh_fqdn="github.com"
+gh_branch="mvp1"
+
+sudo podman run -it --rm \
+    --privileged --device /dev/fuse \
+    --volume /tmp/bundle:/root/deploy/bundle:z \
+  docker.io/codesparta/koffer bundle \
+    --branch ${gh_branch}\
+    --service '${gh_uname}:${gh_token}@${gh_fqdn}' \
+    --repo collector-infra
+    
+sudo tar xv -f /tmp/bundle/koffer-bundle.openshift-*.tar -C /root
+EOF
+chmod +x ./bundle.sh
+```
+Then execute
+```
+./bundle.sh
+```
