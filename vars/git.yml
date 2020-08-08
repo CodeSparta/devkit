@@ -1,5 +1,5 @@
 ---
-#branch: mvp1
+branch: latest
 #uname: "usrbinkat"
 #token: "06xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx9fd"
 #git_fqdn: 'git@github.com:'
@@ -40,11 +40,11 @@ basicrepos:
     key_file: "{{ keyfile }}"
   - repo: "{{ url_git_konductor_go }}"
     dest: "{{ dir_git_konductor_go }}"
-    branch: "{{ branch }}"
+    branch: master
     key_file: "{{ keyfile }}"
   - repo: "{{ url_git_codectlio }}"
     dest: "{{ dir_git_codectlio }}"
-    branch: "{{ branch }}"
+    branch: "master"
     key_file: "{{ keyfile }}"
   - repo: "{{ url_git_maestro_infra }}"
     dest: "{{ dir_git_maestro_infra }}"

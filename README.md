@@ -9,6 +9,10 @@ git clone git@github.com:CodeSparta/devkit.git ~/Sparta/devkit && cd ~/Sparta/de
   - Option A) Set usr/token vars 
   - set uname & token in vars/git.yml or vars/usrtoken.yml & enable in ./git.yml
 ```
+./site.yml -e uname=usrbinkat -e token=xxxx
+```
+or specify branch
+```
 ./site.yml -e branch=mvp1 -e uname=usrbinkat -e token=xxxx
 ```
 ## Develop with private repos
