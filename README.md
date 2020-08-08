@@ -51,11 +51,12 @@ gh_branch="mvp1"
 sudo podman run -it --rm \
     --privileged --device /dev/fuse \
     --volume /tmp/bundle:/root/deploy/bundle:z \
+    --volume ${HOME}/.gitconfig:/root/.gitconfig:z \
   docker.io/codesparta/koffer bundle \
     --branch ${gh_branch}\
-    --service '${gh_uname}:${gh_token}@${gh_fqdn}' \
+    --service "${gh_uname}:${gh_token}@${gh_fqdn}" \
     --repo collector-infra
-    
+
 sudo tar xv -f /tmp/bundle/koffer-bundle.openshift-*.tar -C /root
 
 EOF
