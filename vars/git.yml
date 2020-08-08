@@ -5,7 +5,7 @@ branch: latest
 #git_fqdn: 'git@github.com:'
 
 keyfile: '{{ local_home }}/.ssh/id_rsa_sparta'
-fqdn: 'github.com:'
+fqdn: 'github.com'
 git_address: 'https://{{ uname }}:{{ token }}@{{ fqdn }}/'
 
 # Ansible Git Repos
