@@ -38,12 +38,17 @@ dir_devkit_vpc: "{{ dir_sparta }}/Git/devkit-vpc"
 
 # Git Clone Items
 basicrepos:
+  - repo: "{{ url_git_koffer_go }}"
+    dest: "{{ dir_git_koffer_go }}"
+    branch: "master"
+    key_file: "{{ keyfile }}"
   - repo: "{{ url_git_koffer }}"
     dest: "{{ dir_git_koffer }}"
-    branch: "{{ branch }}"
+    branch: "master"
     key_file: "{{ keyfile }}"
   - repo: "{{ url_git_konductor }}"
     dest: "{{ dir_git_konductor }}"
+    branch: "master"
     branch: "{{ branch }}"
     key_file: "{{ keyfile }}"
   - repo: "{{ url_git_konductor_go }}"
