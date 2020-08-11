@@ -17,6 +17,8 @@ url_git_konductor: '{{ git_address }}CodeSparta/Konductor.git'
 dir_git_konductor: "{{ dir_sparta }}/Git/Konductor"
 url_git_konductor_go: '{{ git_address }}CodeSparta/konductor-go.git'
 dir_git_konductor_go: "{{ dir_sparta }}/Git/konductor-go"
+url_git_konductor_builder: '{{ git_address }}CodeSparta/konductor-builder.git'
+dir_git_konductor_builder: "{{ dir_sparta }}/Git/konductor-builder"
 url_git_maestro_infra: '{{ git_address }}CodeSparta/maestro-infra.git'
 dir_git_maestro_infra: "{{ dir_sparta }}/Git/maestro-infra"
 url_git_maestro_apps: '{{ git_address }}CodeSparta/maestro-apps.git'
@@ -50,6 +52,10 @@ basicrepos:
     dest: "{{ dir_git_konductor }}"
     branch: "master"
     branch: "{{ branch }}"
+    key_file: "{{ keyfile }}"
+  - repo: "{{ url_git_konductor_builder }}"
+    dest: "{{ dir_git_konductor_builder }}"
+    branch: master
     key_file: "{{ keyfile }}"
   - repo: "{{ url_git_konductor_go }}"
     dest: "{{ dir_git_konductor_go }}"
