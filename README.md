@@ -4,7 +4,7 @@ developer kit and contributor materials
 ## Prepare Sparta Project Dev Workspace
   - Clone Sparta Project
 ```
-git clone git@github.com:CodeSparta/devkit.git ~/Sparta/devkit && cd ~/Sparta/devkit
+git clone git@github.com:CodeSparta/devkit.git -b mvp2 ~/Sparta/devkit && cd ~/Sparta/devkit
 ```
   - Option A) Set usr/token vars 
   - set uname & token in vars/git.yml or vars/usrtoken.yml & enable in ./git.yml
@@ -13,7 +13,7 @@ git clone git@github.com:CodeSparta/devkit.git ~/Sparta/devkit && cd ~/Sparta/de
 ```
 or specify branch
 ```
-./site.yml -e branch=mvp1 -e uname=usrbinkat -e token=xxxx
+./site.yml -e branch=mvp2 -e uname=usrbinkat -e token=xxxx
 ```
 ## Develop with private repos
   - [Generate a token](https://github.com/settings/tokens)    
