@@ -6,12 +6,13 @@ Developer & Troubleshooting Tools
 ```
 git clone git@github.com:CodeSparta/devkit.git -b 4.5.8 ~/Sparta/devkit && cd ~/Sparta/devkit
 ```
-  - Option A) Set uname & token in [vars/git.yml](./vars/git.yml#L12)
-  - Option B) Declare user/token vars on cli
+## Execute Git Clone:
+  - With user/token vars on cli
 ```
 ./code.yml -e uname=usrbinkat -e token=xxxx
 ```
-  - Option C) Specify branch
+  - Optional: Specify branch to clone devkit from:
+
 ```
 ./code.yml -e uname=usrbinkat -e token=xxxx -e branch=4.5.8 
 ```
