@@ -10,7 +10,7 @@ git clone git@github.com:CodeSparta/devkit.git -b 4.5.8 ~/Sparta/devkit && cd ~/
 ```
 ###  Clone CodeSparta Codebase
   - Declare github username
-  - Declare github auth token
+  - Declare [github auth token](https://github.com/settings/tokens)
   - Declare branch to clone from
   - Declare name of feature branch to branch/checkout
 
