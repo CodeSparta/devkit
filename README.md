@@ -4,7 +4,7 @@ developer kit and contributor materials
 ## Prepare Sparta Project Dev Workspace
   - Clone Sparta Project
 ```
-git clone git@github.com:CodeSparta/devkit.git -b mvp2 ~/Sparta/devkit && cd ~/Sparta/devkit
+git clone git@github.com:CodeSparta/devkit.git -b 4.5.8 ~/Sparta/devkit && cd ~/Sparta/devkit
 ```
   - Option A) Set usr/token vars 
   - set uname & token in vars/git.yml or vars/usrtoken.yml & enable in ./git.yml
