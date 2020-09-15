@@ -1,9 +1,10 @@
 #!/usr/bin/ansible-playbook --inventory=inventory
+# Rough play to allow for automated CodeSparta feature branch coding & trunk development
 - name: ' Sparta | Devkit | git.yml'
   hosts: local
   vars_files:
-    - 'vars/global.yml'
-    - 'vars/git.yml'
+    - '../vars/global.yml'
+    - '../vars/git.yml'
 #   - 'vars/usrtoken.yml'
   vars:
     module: "git"
@@ -21,11 +22,19 @@
         key_file: "{{ item.key_file }}"
       with_items:
         - "{{ basicrepos }}"
-#       - "{{ terraformrepos }}"
     
-#   - name: '{{ ansible_name_module }} | shell:terraform.init | Initilize terraform modules'
-#     shell: 
-#       cmd: terraform init
-#       chdir: "{{ item.dest }}"
-#     with_items:
-#       - "{{ terraformrepos }}"
+    - name: '{{ ansible_name_module }} | shell:git.checkout | Git Checkout {{ git_checkout }}'
+      shell: 
+        cmd: "git checkout {{ git_checkout }}"
+        chdir: "{{ item.dest }}"
+      with_items:
+        - "{{ basicrepos }}"
+      ignore_errors: True
+    
+    - name: '{{ ansible_name_module }} | shell:git.branch | Git Branch {{ git_checkout }}'
+      shell: 
+        cmd: "git branch {{ git_checkout }}"
+        chdir: "{{ item.dest }}"
+      with_items:
+        - "{{ basicrepos }}"
+      ignore_errors: True

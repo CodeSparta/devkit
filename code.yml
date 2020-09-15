@@ -1,5 +1,5 @@
-#!/usr/bin/ansible-playbook --inventory=inventory
-- name: ' Koffer | Artifact Rake Utility' 
+#!/usr/local/bin/ansible-playbook --inventory=inventory
+- name: ' Sparta | Devkit' 
   hosts: local
   vars:
     module: 'devkit'
@@ -8,5 +8,5 @@
   vars_files:
     - 'vars/git.yml'
 
-- import_playbook: tree.yml         # Create base deploy directory tree
-- import_playbook: git.yml          # Pull git repos
+- import_playbook: ./code/tree.yml         # Create base deploy directory tree
+- import_playbook: ./code/git.yml          # Pull git repos

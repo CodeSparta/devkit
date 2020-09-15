@@ -1,5 +1,6 @@
 ---
 branch: master
+git_checkout: master
 #uname: "usrbinkat"
 #token: "06xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx9fd"
 #git_fqdn: 'git@github.com:'
