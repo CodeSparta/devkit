@@ -1,0 +1,4 @@
+all:
+  hosts:
+    libvirt:
+      ansible_connection: local

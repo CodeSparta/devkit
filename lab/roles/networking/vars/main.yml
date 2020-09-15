@@ -1,0 +1,27 @@
+---
+external_address: "{{ external_host_address }}"
+external_interface: "{{ external_host_interface }}"
+external_gateway: "{{ external_gateway_address }}"
+internal_interface: "{{ internal_host_interface }}"
+packages_libvirt_fedora:
+  - libvirt
+  - libvirt-client
+  - python3-libvirt
+  - python3-lxml
+packages_libvirt_rhel7:
+  - qemu-kvm
+  - libvirt
+  - libguestfs-tools
+  - python-lxml
+  - libvirt-python
+  - python-dns
+packages_libvirt_rhel8:
+  - qemu-kvm
+  - libvirt
+  - libguestfs-tools
+  - libvirt-client
+  - python3-lxml
+  - python3-libvirt
+  - python3-dns
+packages_openvswitch_fedora:
+  - openvswitch

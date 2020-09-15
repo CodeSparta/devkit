@@ -1,0 +1,7 @@
+---
+# Install Base Packages on RHEL
+- name: MSIO | Networking | Libvirt | Install Min2Config Packages on RHEL 7
+  become: yes
+  package:
+    name: "{{ packages_libvirt_rhel7 }}"
+    state: present

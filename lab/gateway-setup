@@ -1,0 +1,47 @@
+#!/bin/ansible-playbook
+- name: Build CCIO OCP MiniStack OpenWRT Gateway LXD Container
+  hosts: localhost
+  connection: local
+  vars_files:
+    - vars/custom.yml
+  tasks:
+    - name: Gateway - Build Profile
+      lxd_profile:
+        name: openwrt
+        state: present
+        config: 
+          linux.kernel_modules: ip6table_filter,iptable_filter,wireguard,ip6_udp_tunnel,udp_tunnel
+          security.privileged: "true"
+          security.nesting: "true"
+          boot.autostart: "true"
+        devices:
+          eth0:
+            name: eth0
+            nictype: bridged
+            parent: external
+            type: nic
+          eth1:
+            name: eth1
+            nictype: bridged
+            parent: internal
+            type: nic
+          eth2:
+            name: eth2
+            nictype: bridged
+            parent: ocp-mini-stack
+            type: nic
+          root:
+            path: /
+            pool: default
+            type: disk
+    - name: Gateway - Prep OpenWRT Configuration (stage dir)
+      file:
+        path: /tmp/openwrt/config
+        state: directory
+    - name: Template files
+      template:
+        src: '{{ item.src }}'
+        dest: /tmp/openwrt/config/{{ item.path }}
+        mode: '{{ item.mode }}'
+      with_filetree: templates/openwrt/
+      when: item.state == 'file'
