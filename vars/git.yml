@@ -1,15 +1,24 @@
 ---
 branch: master
 git_checkout: master
-#uname: "usrbinkat"
-#token: "06xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx9fd"
-#git_fqdn: 'git@github.com:'
-
-keyfile: '{{ local_home }}/.ssh/id_rsa_sparta'
 fqdn: 'github.com'
 git_address: 'https://{{ uname }}:{{ token }}@{{ fqdn }}/'
 
 # Ansible Git Repos
+url_git_snowflake_operator_gpu: '{{ git_address }}CodeSparta/snowflake-operator-gpu.git'
+dir_git_snowflake_operator_gpu: "{{ dir_sparta }}/Git/snowflake-operator-gpu"
+url_git_maestro_platform: '{{ git_address }}CodeSparta/maestro-platform.git'
+dir_git_maestro_platform: "{{ dir_sparta }}/Git/maestro-platform"
+url_git_devkit_bastion: '{{ git_address }}CodeSparta/devkit-bastion.git'
+dir_git_devkit_bastion: "{{ dir_sparta }}/Git/devkit-bastion"
+url_git_sparta_libs: '{{ git_address }}CodeSparta/sparta-libs.git'
+dir_git_sparta_libs: "{{ dir_sparta }}/Git/sparta-libs"
+url_git_cloudctl: '{{ git_address }}CodeSparta/CloudCtl.git'
+dir_git_cloudctl: "{{ dir_sparta }}/Git/CloudCtl"
+url_git_jinx: '{{ git_address }}CodeSparta/Jinx.git'
+dir_git_jinx: "{{ dir_sparta }}/Git/Jinx"
+url_git_wiki: '{{ git_address }}CodeSparta/Wiki.wiki.git'
+dir_git_wiki: "{{ dir_sparta }}/Git/Wiki"
 url_git_koffer: '{{ git_address }}CodeSparta/Koffer.git'
 dir_git_koffer: "{{ dir_sparta }}/Git/Koffer"
 url_git_koffer_go: '{{ git_address }}CodeSparta/koffer-go.git'
@@ -32,8 +41,6 @@ url_git_collector_operators: '{{ git_address }}CodeSparta/collector-operators.gi
 dir_git_collector_operators: "{{ dir_sparta }}/Git/collector-operators"
 url_git_codectlio: '{{ git_address }}CodeSparta/codectl.github.io.git'
 dir_git_codectlio: "{{ dir_sparta }}/Git/codectl.github.io"
-
-# Terraform Git Repos
 url_git_shaman: '{{ git_address }}CodeSparta/shaman'
 dir_git_shaman: "{{ dir_sparta }}/Git/shaman"
 url_devkit_vpc: '{{ git_address }}CodeSparta/devkit-vpc'
@@ -41,57 +48,63 @@ dir_devkit_vpc: "{{ dir_sparta }}/Git/devkit-vpc"
 
 # Git Clone Items
 basicrepos:
+  - repo: "{{ url_git_snowflake_operator_gpu }}"
+    dest: "{{ dir_git_snowflake_operator_gpu }}"
+    branch: "{{ branch }}"
+  - repo: "{{ url_git_maestro_platform }}"
+    dest: "{{ dir_git_maestro_platform }}"
+    branch: "{{ branch }}"
+  - repo: "{{ url_git_devkit_bastion }}"
+    dest: "{{ dir_git_devkit_bastion }}"
+    branch: "{{ branch }}"
+  - repo: "{{ url_git_sparta_libs }}"
+    dest: "{{ dir_git_sparta_libs }}"
+    branch: "{{ branch }}"
+  - repo: "{{ url_git_cloudctl }}"
+    dest: "{{ dir_git_cloudctl }}"
+    branch: "{{ branch }}"
+  - repo: "{{ url_git_jinx }}"
+    dest: "{{ dir_git_jinx }}"
+    branch: "{{ branch }}"
+  - repo: "{{ url_git_wiki }}"
+    dest: "{{ dir_git_wiki }}"
+    branch: "{{ branch }}"
   - repo: "{{ url_git_koffer_go }}"
     dest: "{{ dir_git_koffer_go }}"
     branch: "{{ branch }}"
-    key_file: "{{ keyfile }}"
   - repo: "{{ url_git_koffer }}"
     dest: "{{ dir_git_koffer }}"
     branch: "{{ branch }}"
-    key_file: "{{ keyfile }}"
   - repo: "{{ url_git_konductor }}"
     dest: "{{ dir_git_konductor }}"
     branch: "{{ branch }}"
-    key_file: "{{ keyfile }}"
   - repo: "{{ url_git_konductor_builder }}"
     dest: "{{ dir_git_konductor_builder }}"
     branch: "{{ branch }}"
-    key_file: "{{ keyfile }}"
   - repo: "{{ url_git_konductor_go }}"
     dest: "{{ dir_git_konductor_go }}"
     branch: "{{ branch }}"
-    key_file: "{{ keyfile }}"
   - repo: "{{ url_git_codectlio }}"
     dest: "{{ dir_git_codectlio }}"
     branch: "{{ branch }}"
-    key_file: "{{ keyfile }}"
   - repo: "{{ url_git_maestro_infra }}"
     dest: "{{ dir_git_maestro_infra }}"
     branch: "{{ branch }}"
-    key_file: "{{ keyfile }}"
   - repo: "{{ url_git_maestro_apps }}"
     dest: "{{ dir_git_maestro_apps }}"
     branch: "{{ branch }}"
-    key_file: "{{ keyfile }}"
   - repo: "{{ url_git_collector_infra }}"
     dest: "{{ dir_git_collector_infra }}"
     branch: "{{ branch }}"
-    key_file: "{{ keyfile }}"
   - repo: "{{ url_git_collector_apps }}"
     dest: "{{ dir_git_collector_apps }}"
     branch: "{{ branch }}"
-    key_file: "{{ keyfile }}"
   - repo: "{{ url_git_collector_operators }}"
     dest: "{{ dir_git_collector_operators }}"
     branch: "{{ branch }}"
-    key_file: "{{ keyfile }}"
   - repo: "{{ url_git_shaman }}"
     dest: "{{ dir_git_shaman }}"
     branch: "{{ branch }}"
-    key_file: "{{ keyfile }}"
   - repo: "{{ url_devkit_vpc }}"
     dest: "{{ dir_devkit_vpc }}"
     branch: "{{ branch }}"
-    key_file: "{{ keyfile }}"
-
-#terraformrepos:

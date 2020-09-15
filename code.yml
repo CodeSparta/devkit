@@ -1,5 +1,5 @@
 #!/usr/local/bin/ansible-playbook --inventory=inventory
-- name: ' Sparta | Devkit' 
+- name: ' Sparta | Devkit'
   hosts: local
   vars:
     module: 'devkit'

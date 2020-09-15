@@ -11,7 +11,7 @@
     ansible_name_module: "{{ ansible_name }} | {{ module }}"
   tasks:
 
-    - name: '{{ ansible_name_module }} | git:clone | Clone Sparta Git Repositories' 
+    - name: '{{ ansible_name_module }} | git:clone | Clone Sparta Git Repositories'
       git:
         clone: yes
         version: "{{ item.branch }}"
@@ -22,17 +22,17 @@
         key_file: "{{ item.key_file }}"
       with_items:
         - "{{ basicrepos }}"
-    
+
     - name: '{{ ansible_name_module }} | shell:git.checkout | Git Checkout {{ git_checkout }}'
-      shell: 
+      shell:
         cmd: "git checkout {{ git_checkout }}"
         chdir: "{{ item.dest }}"
       with_items:
         - "{{ basicrepos }}"
       ignore_errors: True
-    
+
     - name: '{{ ansible_name_module }} | shell:git.branch | Git Branch {{ git_checkout }}'
-      shell: 
+      shell:
         cmd: "git branch {{ git_checkout }}"
         chdir: "{{ item.dest }}"
       with_items:
