@@ -1,6 +1,9 @@
 # CodeSparta Devkit
 Developer & Troubleshooting Tools
 
+### Dependencies:
+  1. [Podman](https://podman.io/getting-started/installation.html)
+
 ## Prepare/Clone Code Development Workspace
   - Clone Sparta Project
 ```
