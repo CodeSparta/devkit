@@ -1,0 +1,18 @@
+---
+selinux_state: permissive
+selinux_policy: targeted
+packages_base_fedora:
+ - tar
+ - tmux
+ - htop
+ - grubby
+ - ansible
+ - iperf3
+ - glances
+ - hostname
+ - neofetch
+ - net-tools
+ - vim-enhanced
+ - speedtest-cli
+ - openssh-server
+ - wireguard-tools

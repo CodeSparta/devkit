@@ -1,0 +1,31 @@
+#!/bin/ansible-playbook --inventory=inventory
+- name: Build MSIO Hypervisor
+  hosts: libvirt
+  become: true
+  gather_facts: yes
+  vars_files:
+    - vars/defaults.yml
+    - vars/grub.yml
+  vars:
+    module: "Host_Network"
+    ansible_name_module: "{{ ansible_name }} | {{ module }}"
+  roles:
+
+    - name: '{{ ansible_name_module }} | template | Stage bash network transition script' 
+      role: base
+      tags: base
+
+    - role: openvswitch
+      tags: ovs
+
+    - role: libvirt
+      tags: virt
+
+    - role: grub
+      tags: grub
+
+    - role: lxd
+      tags: lxd
+
+    - role: wireguard
+      tags: wg
