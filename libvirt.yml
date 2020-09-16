@@ -1,10 +1,10 @@
 #!/usr/local/bin/ansible-playbook --inventory=inventory
 - name: ' Sparta | Devkit | Libvirt Hypervisor'
-  hosts: local
+  hosts: libvirt
   vars:
     module: 'devkit'
     ansible_name_module: ' Sparta | Devkit'
 # vars_files:
 
 - import_playbook: ./lab/network-setup.yml     # Implement host network architecture
-- import_playbook: ./lab/libvirt-setup.yml     # Build host hypervisor layer
+- import_playbook: ./lab/hypervisor-setup.yml     # Build host hypervisor layer
