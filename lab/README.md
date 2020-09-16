@@ -32,8 +32,7 @@ git clone git@github.com:CodeSparta/devkit.git -b 4.5.8 ~/Sparta/devkit && cd ~/
 ## [OPTIONAL] Part 02 -- Build Virtual Firewall & Gateway
 #### 01\. Add Image Server & Initialize Gateway
 ```sh
- mkdir -p /tmp/openwrt
- sudo podman run --privileged --rm -it --name openwrt_builder --volume /tmp/openwrt:/root/bin:z containercraft/ccio-openwrt-builder:19.07.4
+ mkdir -p /tmp/openwrt && sudo podman run --privileged --rm -it --name openwrt_builder --volume /tmp/openwrt:/root/bin:z containercraft/ccio-openwrt-builder:19.07.4
 ```
 #### 02\. Stage OpenWRT LXD Gateway Profile and Config Files
 ```sh
