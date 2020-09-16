@@ -34,7 +34,6 @@ git clone git@github.com:CodeSparta/devkit.git -b 4.5.8 ~/Sparta/devkit && cd ~/
 ```sh
  mkdir -p /tmp/openwrt
  sudo podman run --privileged --rm -it --name openwrt_builder --volume /tmp/openwrt:/root/bin:z containercraft/ccio-openwrt-builder:19.07.4
- lxc image import /tmp/openwrt/openwrt-19.07.4-x86-64-lxd.tar.gz --alias openwrt/19.07.4/x86_64
 ```
 #### 02\. Stage OpenWRT LXD Gateway Profile and Config Files
 ```sh
@@ -42,6 +41,7 @@ git clone git@github.com:CodeSparta/devkit.git -b 4.5.8 ~/Sparta/devkit && cd ~/
 ```
 #### 03\. Push Config directory to Gateway
 ```sh
+ lxc image import /tmp/openwrt/openwrt-19.07.4-x86-64-lxd.tar.gz --alias openwrt/19.07.4/x86_64
  lxc init openwrt/19.07.4/x86_64 gateway -p openwrt
  lxc file push -r /tmp/openwrt/config gateway/etc/
 ```
