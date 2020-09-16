@@ -24,7 +24,7 @@ git clone git@github.com:CodeSparta/devkit.git -b 4.5.8 ~/Sparta/devkit && cd ~/
 ```sh
  source tools/dev.sh
 ```
-#### 01\. Run Hypervisor Setup Playbook
+#### 02\. Run Hypervisor Setup Playbook
 ```sh
  ./libvirt.yml
 ```
