@@ -29,7 +29,7 @@ git clone git@github.com:CodeSparta/devkit.git -b 4.5.8 ~/Sparta/devkit && cd ~/
  ./libvirt.yml
 ```
 --------------------------------------------------------------------------------
-## Part 03 OPTIONAL -- Build Virtual Firewall & Gateway
+## Part 02 OPTIONAL -- Build Virtual Firewall & Gateway
 #### 01\. Add Image Server & Initialize Gateway
 ```sh
  mkdir -p /tmp/openwrt
