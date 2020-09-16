@@ -1,7 +1,7 @@
 # Local Hypervisor Setup
 ## Requirements:
-1. You have a clean install of [Fedora Workstation/Server](https://getfedora.org/en/workstation/)
-2. You have installed [podman](https://podman.io/getting-started/installation.html)
+1. A clean install of [Fedora Workstation/Server](https://getfedora.org/en/workstation/)
+2. [Podman](https://podman.io/getting-started/installation.html) installed
 3. There is no critical data on the hypervisor system
     
 ## Intro:    
