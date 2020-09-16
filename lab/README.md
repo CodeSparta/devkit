@@ -5,7 +5,7 @@
 3. There is no critical data on the hypervisor system
     
 ## Intro:    
-These playbooks are a rough Sparta developer enablement tools and should be
+These playbooks are represent rough Sparta developer enablement tools and should be
 considered "work-in-progress". This component of devkit enables sparta ocp builds
 on modest hardware via the linux hypervisor layers {{ [libvirt],[kvm],[qemu] }}
 
