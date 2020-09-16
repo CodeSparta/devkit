@@ -16,11 +16,15 @@ on modest hardware via the linux hypervisor layers {{ [libvirt],[kvm],[qemu] }}
 ## Instructions:
 #### 00\. Clone the Devkit Repository
 ```sh
-git clone https://github.com/containercraft/ocp-mini-stack.git ~/.ccio/ocp-mini-stack; cd ~/.ccio/ocp-mini-stack/ansible/
+git clone git@github.com:CodeSparta/devkit.git -b 4.5.8 ~/Sparta/devkit && cd ~/Sparta/devkit
 ```
 --------------------------------------------------------------------------------
-## Part 02 -- Build Hypervisor Layer
-#### 01\. Execute Hypervisor Setup Playbook
+## Part 01 -- Build Hypervisor Layer
+#### 01\. Execute Into IaC Engine Container Runtime
+```sh
+ source tools/dev.sh
+```
+#### 01\. Run Hypervisor Setup Playbook
 ```sh
  ./libvirt.yml
 ```
