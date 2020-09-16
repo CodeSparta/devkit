@@ -14,7 +14,7 @@ on modest hardware via the linux hypervisor layers {{ [libvirt],[kvm],[qemu] }}
 [qemu]:https://www.qemu.org/
 
 --------------------------------------------------------------------------------
-# Instructions:
+## Instructions:
 #### 00\. Clone the ocp-mini-stack repo
 ```sh
 sudo dnf install git ansible -y
