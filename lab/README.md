@@ -5,13 +5,15 @@
 3. There is no critical data on the hypervisor system
     
 --------------------------------------------------------------------------------
-## Intro:
+## Intro:    
 These playbooks are a rough Sparta developer enablement tools and should be
 considered "work-in-progress". This component of devkit enables sparta ocp builds
 on modest hardware via the linux hypervisor layers {[libvirt],[kvm],[qemu]}
+
 [libvirt]:https://wiki.libvirt.org/page/Main_Page
 [kvm]:https://www.redhat.com/en/topics/virtualization/what-is-KVM
 [qemu]:https://www.qemu.org/
+
 --------------------------------------------------------------------------------
 # Instructions:
 #### 00\. Clone the ocp-mini-stack repo
