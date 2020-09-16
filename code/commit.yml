@@ -1,30 +1,27 @@
 #!/usr/bin/ansible-playbook --inventory=inventory
 # Rough play to allow for automated CodeSparta feature branch coding & trunk development
-- name: ' Sparta | Devkit | git.yml'
+- name: ' Sparta | Devkit | commit.yml'
   hosts: local
   vars_files:
     - '../vars/global.yml'
     - '../vars/git.yml'
-#   - 'vars/usrtoken.yml'
   vars:
     module: "git"
     ansible_name_module: "{{ ansible_name }} | {{ module }}"
+    git_remote: origin
   tasks:
-
-    - name: '{{ ansible_name_module }} | git:clone | Clone Sparta Git Repositories'
-      git:
-        clone: yes
-        version: master
-        repo: "{{ item.repo }}"
-        dest: "{{ item.dest }}"
-        update: true
-        force: yes
-      with_items:
-        - "{{ basicrepos }}"
 
     - name: '{{ ansible_name_module }} | shell:git.checkout | Git Checkout {{ git_checkout }}'
       shell:
-        cmd: "git checkout {{ git_checkout }}"
+        cmd: "git stage -A"
+        chdir: "{{ item.dest }}"
+      with_items:
+        - "{{ basicrepos }}"
+      ignore_errors: True
+
+    - name: '{{ ansible_name_module }} | shell:git.checkout | Git Checkout {{ git_checkout }}'
+      shell:
+        cmd: "git commit -m {{ git_msg }}"
         chdir: "{{ item.dest }}"
       with_items:
         - "{{ basicrepos }}"
@@ -32,7 +29,7 @@
 
     - name: '{{ ansible_name_module }} | shell:git.branch | Git Branch {{ git_checkout }}'
       shell:
-        cmd: "git checkout -b {{ git_branch }}"
+        cmd: "git push {{ git_remote }} {{ git_branch }}"
         chdir: "{{ item.dest }}"
       with_items:
         - "{{ basicrepos }}"
