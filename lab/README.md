@@ -28,28 +28,40 @@ git clone git@github.com:CodeSparta/devkit.git -b 4.5.9 ~/Sparta/devkit && cd ~/
 ```sh
  ./libvirt.yml
 ```
+#### 03\. Exit IaC Engine
+```sh
+ exit
+```
 --------------------------------------------------------------------------------
 ## [OPTIONAL] Part 02 -- Build Virtual Firewall & Gateway
-#### 01\. Build OpenWRT VFW Container Image
+#### 01\. Execute Into IaC Engine Container Runtime
+```sh
+ source tools/dev.sh
+```
+#### 02\. Build OpenWRT VFW Container Image
 ```sh
  mkdir -p /tmp/openwrt && rm -rf /tmp/openwrt/* && sudo podman run --privileged --rm -it --name openwrt_builder --volume /tmp/openwrt:/root/bin:z containercraft/ccio-openwrt-builder:19.07.4
 ```
-#### 02\. Enable host for OpenWRT LXD VFW
+#### 03\. Enable host for OpenWRT LXD VFW
 ```sh
  ./gateway-setup -i hosts.yml
 ```
-#### 03\. Push Config directory to Gateway
+#### 04\. Exit IaC Engine
+```sh
+ exit
+```
+#### 05\. Push Config directory to Gateway
 ```sh
  lxc image import /tmp/openwrt/openwrt-19.07.4-x86-64-lxd.tar.gz --alias openwrt/19.07.4/x86_64
  lxc init openwrt/19.07.4/x86_64 gateway -p openwrt
  lxc file push -r /tmp/openwrt/config gateway/etc/
 ```
-#### 04\. Start Gateway and monitor for IPv4 Address
+#### 06\. Start Gateway and monitor for IPv4 Address
 ```sh
  lxc start gateway
  watch -c lxc list
 ```
-# Set password before logging in on WebUI
+#### 07\. Set password before logging in on WebUI
 ```sh
  lxc exec gateway passwd
 ```
