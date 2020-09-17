@@ -1,5 +1,5 @@
 [Match]
-Name=ocp-mini-stack
+Name=sparta
 [Network]
 DHCP=no
 IPv6AcceptRA=no

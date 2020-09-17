@@ -1,9 +1,10 @@
-#!/bin/ansible-playbook
-- name: Build CCIO OCP MiniStack OpenWRT Gateway LXD Container
-  hosts: localhost
-  connection: local
+#!/bin/ansible-playbook --inventory=inventory
+- name: ContainerCraft.io OpenWRT VFW Gateway LXD Container
+  hosts: libvirt
+  become: true
+  gather_facts: yes
   vars_files:
-    - vars/custom.yml
+    - vars/defaults.yml
   tasks:
     - name: Gateway - Build Profile
       lxd_profile:
@@ -28,7 +29,7 @@
           eth2:
             name: eth2
             nictype: bridged
-            parent: ocp-mini-stack
+            parent: sparta
             type: nic
           root:
             path: /
