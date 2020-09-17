@@ -50,7 +50,7 @@ git clone git@github.com:CodeSparta/devkit.git -b 4.5.9 ~/Sparta/devkit && cd ~/
 ```sh
  exit
 ```
-#### 05\. Push Config directory to Gateway
+#### 05\. Build Gateway Container
 ```sh
  lxc image import /tmp/openwrt/openwrt-19.07.4-x86-64-lxd.tar.gz --alias openwrt/19.07.4/x86_64
  lxc init openwrt/19.07.4/x86_64 gateway -p openwrt
