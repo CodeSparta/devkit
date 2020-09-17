@@ -1,4 +1,4 @@
-#!/bin/ansible-playbook --inventory=inventory
+#!/usr/local/bin/ansible-playbook --inventory=inventory
 - name: Build MSIO Hypervisor OpenShift Network
   hosts: libvirt
   become: true

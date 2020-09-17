@@ -1,5 +1,5 @@
-#!/bin/ansible-playbook --inventory=inventory
-- name: Build MSIO Hypervisor
+#!/usr/local/bin/ansible-playbook --inventory=inventory
+- name: Build Sparta Libvirt Hypervisor
   hosts: libvirt
   become: true
   gather_facts: yes

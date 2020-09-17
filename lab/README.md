@@ -49,4 +49,8 @@ git clone git@github.com:CodeSparta/devkit.git -b 4.5.9 ~/Sparta/devkit && cd ~/
  lxc start gateway
  watch -c lxc list
 ```
+# Set password before logging in on WebUI
+```sh
+ lxc exec gateway passwd
+```
  - Login to the OpenWRT WebUI @ the 'eth0' IP address with `http://${address}:8081`

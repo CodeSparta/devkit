@@ -38,8 +38,8 @@
 - name: Define OVS Bridge 'ocp' from .xml
   virt_net:
     command: define
-    name: ocp-mini-stack
-    xml: "{{ lookup('template', lookup('env','HOME') + '/hypervisor/ansible/templates/libvirt/ocp-mini-stack.xml') }}"
+    name: sparta
+    xml: "{{ lookup('template', lookup('env','HOME') + '/hypervisor/ansible/templates/libvirt/sparta.xml') }}"
 - name: Define OVS Bridge 'ocp' from .xml
   virt_net:
     autostart: yes
@@ -48,7 +48,7 @@
     - default
     - external
     - internal
-    - ocp-mini-stack
+    - sparta
 - name: Define OVS Bridge 'ocp' from .xml
   virt_net:
     state: active
@@ -57,4 +57,4 @@
     - default
     - external
     - internal
-    - ocp-mini-stack
+    - sparta
