@@ -6,7 +6,7 @@ Developer & Troubleshooting Tools
 
 ### Clone Devkit Repo
 ```
-git clone git@github.com:CodeSparta/devkit.git -b 4.5.9 ~/Sparta/devkit && cd ~/Sparta/devkit
+git clone git@github.com:CodeSparta/devkit.git -b 4.5.11 ~/Sparta/devkit && cd ~/Sparta/devkit
 ```
 ###  Clone CodeSparta Codebase
   - Declare github username
@@ -15,5 +15,5 @@ git clone git@github.com:CodeSparta/devkit.git -b 4.5.9 ~/Sparta/devkit && cd ~/
   - Declare name of feature branch to branch/checkout
 
 ```
-./code.yml -e uname=usrbinkat -e token=xxxx -e branch=master -e git_checkout=4.5.9
+./code.yml -e uname=usrbinkat -e token=xxxx -e branch=master -e git_checkout=4.5.11
 ```
