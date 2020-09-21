@@ -19,7 +19,6 @@ cat <<EOF > run.sh && chmod +x run.sh && ./run.sh
 #!/bin/bash -x
 mkdir -p ~/bundle
 sudo podman run -it --rm --pull always \
-    --privileged --device /dev/fuse \
     --volume $(pwd)/bundle:/root/deploy/bundle:z \
     --volume ${HOME}/.docker/config.json:/root/.docker/config.json:z \
     --volume $(pwd)/sparta.yml:/root/.koffer/config.yml:z \
