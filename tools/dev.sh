@@ -1,6 +1,6 @@
 #!/bin/bash -x
 clear
-rm -rf /tmp/.ssh /tmp/.gitconfig /tmp/.bashrc
+sudo rm -rf /tmp/.ssh /tmp/.gitconfig /tmp/.bashrc
 cp -rf ~/.ssh ~/.gitconfig ~/.bashrc /tmp/
 sudo podman run -it --rm --pull always \
     -h konductor --name konductor \
