@@ -15,5 +15,5 @@ git clone https://github.com/CodeSparta/devkit.git -b master ~/Sparta/devkit && 
   - Declare name of feature branch to branch/checkout
 
 ```
-./code.yml -e uname=usrbinkat -e token=xxxx -e branch=master -e git_checkout=4.5.11
+./code.yml -e uname=usrbinkat -e token=xxxx -e branch=master -e git_checkout=4.5.11 -e git_branch=feature_uname_purpose
 ```
