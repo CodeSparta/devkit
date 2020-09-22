@@ -30,7 +30,7 @@
         - "{{ basicrepos }}"
       ignore_errors: True
 
-    - name: '{{ ansible_name_module }} | shell:git.branch | Git Branch {{ git_checkout }}'
+    - name: '{{ ansible_name_module }} | shell:git.branch | Git Branch {{ git_branch }}'
       shell:
         cmd: "git checkout -b {{ git_branch }}"
         chdir: "{{ item.dest }}"
