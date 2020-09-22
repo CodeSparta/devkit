@@ -6,7 +6,7 @@ Developer & Troubleshooting Tools
 
 ### Clone Devkit Repo
 ```
-git clone git@github.com:CodeSparta/devkit.git -b master ~/Sparta/devkit && cd ~/Sparta/devkit
+git clone https://github.com/CodeSparta/devkit.git -b master ~/Sparta/devkit && cd ~/Sparta/devkit
 ```
 ###  Clone CodeSparta Codebase
   - Declare github username
