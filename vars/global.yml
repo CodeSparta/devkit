@@ -1,5 +1,5 @@
 ---
 name_vendor: " Sparta"
 ansible_name: "{{ name_vendor }} | Devkit"
-dir_sparta: "{{ local_home }}/Sparta"
-local_home: "{{ ansible_env.HOME  }}"
+local_home: "{{ ansible_env.HOME }}"
+dir_devkit: "{{ local_home }}/platform/iac/devkit"

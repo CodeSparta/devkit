@@ -3,7 +3,7 @@ clear
 sudo rm -rf /tmp/.ssh /tmp/.gitconfig /tmp/.bashrc
 cp -rf ~/.ssh ~/.gitconfig ~/.bashrc /tmp/
 sudo podman run -it --rm --pull always \
-    -h konductor --name konductor \
+    -h devkit --name devkit \
     --entrypoint bash --privileged \
     --volume /tmp/.ssh:/root/.ssh:z \
     --volume /tmp/.bashrc:/root/.bashrc:z \

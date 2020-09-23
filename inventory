@@ -1,5 +1,5 @@
-#[libvirt]
-#local ansible_host=10.88.0.1 ansible_connection=ssh ansible_user=root
+[libvirt]
+sparta ansible_host=10.88.0.1 ansible_connection=ssh ansible_user=root
 
 [local]
 localhost ansible_connection=local
