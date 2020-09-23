@@ -1,3 +1,3 @@
 ```
-sshuttle --dns -r ec2-user@18.252.18.39 0.0.0.0/0 --ssh-cmd  'ssh -i ~/.ssh/key.pem'
+sshuttle --dns --ssh-cmd  'ssh -i ~/.ssh/${keyname}' -r ec2-user@${public_ip} 0.0.0.0/0 &
 ```
