@@ -17,3 +17,7 @@ git clone https://github.com/CodeSparta/devkit.git -b master ~/Sparta/devkit && 
 ```
 ./code.yml -e uname=usrbinkat -e token=xxxx -e clone=master -e checkout=4.5.11 -e branch=feature_uname_purpose
 ```
+###  Cut New CodeSparta Release Tag
+```
+ ./tag.yml -e tag='4.5.11'
+```

@@ -8,20 +8,12 @@
   vars:
     module: "git"
     ansible_name_module: "{{ ansible_name }} | {{ module }}"
-    remote: origin
+    message: "Release {{ tag }}"
   tasks:
 
-    - name: '{{ ansible_name_module }} | shell:git.stage-A | Git Stage All Files'
+    - name: '{{ ansible_name_module }} | shell:git.tag | Git Tag Project'
       shell:
-        cmd: "git stage -A"
-        chdir: "{{ item.dest }}"
-      with_items:
-        - "{{ basicrepos }}"
-      ignore_errors: True
-
-    - name: '{{ ansible_name_module }} | shell:git.commit-m | Git Commit {{ message }}'
-      shell:
-        cmd: "git commit -m {{ message }}"
+        cmd: 'git tag -a {{ tag }} -m "{{ message }}"'
         chdir: "{{ item.dest }}"
       with_items:
         - "{{ basicrepos }}"
@@ -29,8 +21,7 @@
 
     - name: '{{ ansible_name_module }} | shell:git.push.origin | Git Push {{ branch }}'
       shell:
-        cmd: "git push {{ remote }} {{ branch }}"
+        cmd: "git push {{ remote }} --tags"
         chdir: "{{ item.dest }}"
       with_items:
         - "{{ basicrepos }}"
-      ignore_errors: True

@@ -1,7 +1,8 @@
 ---
+remote: origin
 clone: master
-checkout: master
 branch: master
+checkout: master
 fqdn: 'github.com'
 git_address: 'https://{{ uname }}:{{ token }}@{{ fqdn }}/'
 

@@ -13,7 +13,7 @@
     - name: '{{ ansible_name_module }} | git:clone | Clone Sparta Git Repositories'
       git:
         clone: yes
-        version: {{ clone }}
+        version: '{{ clone }}'
         repo: "{{ item.repo }}"
         dest: "{{ item.dest }}"
         update: true
