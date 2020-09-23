@@ -5,7 +5,6 @@
   vars_files:
     - '../vars/global.yml'
     - '../vars/git.yml'
-#   - 'vars/usrtoken.yml'
   vars:
     module: "git"
     ansible_name_module: "{{ ansible_name }} | {{ module }}"
@@ -14,7 +13,7 @@
     - name: '{{ ansible_name_module }} | git:clone | Clone Sparta Git Repositories'
       git:
         clone: yes
-        version: master
+        version: {{ clone }}
         repo: "{{ item.repo }}"
         dest: "{{ item.dest }}"
         update: true
@@ -24,7 +23,7 @@
 
     - name: '{{ ansible_name_module }} | shell:git.checkout | Git Checkout {{ git_checkout }}'
       shell:
-        cmd: "git checkout {{ git_checkout }}"
+        cmd: "git checkout {{ checkout }}"
         chdir: "{{ item.dest }}"
       with_items:
         - "{{ basicrepos }}"
@@ -32,7 +31,7 @@
 
     - name: '{{ ansible_name_module }} | shell:git.branch | Git Branch {{ git_branch }}'
       shell:
-        cmd: "git checkout -b {{ git_branch }}"
+        cmd: "git checkout -b {{ branch }}"
         chdir: "{{ item.dest }}"
       with_items:
         - "{{ basicrepos }}"

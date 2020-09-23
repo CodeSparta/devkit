@@ -1,6 +1,7 @@
 ---
+clone: master
+checkout: master
 branch: master
-git_checkout: master
 fqdn: 'github.com'
 git_address: 'https://{{ uname }}:{{ token }}@{{ fqdn }}/'
 
