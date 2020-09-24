@@ -2,7 +2,7 @@
 ## Requirements:
 1. A clean install of [Fedora Workstation/Server](https://getfedora.org/en/workstation/)
 2. [Podman](https://podman.io/getting-started/installation.html) installed
-3. [~/.gitconfig](https://github.com/CodeSparta/devkit/blob/master/docs/gitconfig.md)
+3. [~/.gitconfig](https://github.com/CodeSparta/devkit/blob/master/docs/gitconfig.md) configured with token auth
 4. There is no critical data on the hypervisor system
 5. Run all cmds as root
     
