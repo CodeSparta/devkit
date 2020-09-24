@@ -10,7 +10,7 @@ koffer:
       service: github.com
       organization: codesparta
       branch: master
-      version: 4.5.11
+      version: master
 EOF
 ```
   3. Execute Koffer

@@ -2,7 +2,8 @@
 ## Requirements:
 1. A clean install of [Fedora Workstation/Server](https://getfedora.org/en/workstation/)
 2. [Podman](https://podman.io/getting-started/installation.html) installed
-3. There is no critical data on the hypervisor system
+3. [~/.gitconfig](https://github.com/CodeSparta/devkit/blob/master/docs/gitconfig.md)
+4. There is no critical data on the hypervisor system
     
 ## Intro:    
 These playbooks represent rough Sparta developer enablement tools and should be
@@ -16,10 +17,10 @@ on modest hardware via the linux hypervisor layers {{ [libvirt],[kvm],[qemu] }}
 ## Instructions:
 #### 00\. Clone the Devkit Repository
 ```sh
-git clone git@github.com:CodeSparta/devkit.git -b 4.5.11 ~/Sparta/devkit && cd ~/Sparta/devkit
+git clone git@github.com:CodeSparta/devkit.git -b master ~/Sparta/devkit && cd ~/Sparta/devkit
 ```
 --------------------------------------------------------------------------------
-## Part 01 -- Build Hypervisor Layer
+## Part 01 -- Build Hypervisor on Linux
 #### 01\. Execute Into IaC Engine Container Runtime
 ```sh
  source tools/dev.sh
