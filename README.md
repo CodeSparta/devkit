@@ -3,6 +3,7 @@ Developer & Troubleshooting Tools
 
 ### Dependencies:
   1. [Podman](https://podman.io/getting-started/installation.html)
+  2. [~/.gitconfig](https://github.com/CodeSparta/devkit/blob/master/docs/gitconfig.md)
 
 ### Clone Devkit Repo
 ```
