@@ -44,17 +44,17 @@ on modest hardware via the linux hypervisor layers {{ [libvirt],[kvm],[qemu] }}
 ```
 --------------------------------------------------------------------------------
 ## [OPTIONAL] Build Virtual Firewall & Gateway
-#### 01\. Execute Into IaC Engine Container Runtime
-```sh
- source tools/dev.sh
-```
-#### 02\. Build OpenWRT VFW Container Image
+#### 01\. Build OpenWRT VFW Container Image
 ```sh
  mkdir -p /tmp/openwrt && rm -rf /tmp/openwrt/* && sudo podman run --privileged --rm -it --name openwrt_builder --volume /tmp/openwrt:/root/bin:z containercraft/ccio-openwrt-builder:19.07.4
 ```
+#### 02\. Execute Into IaC Engine Container Runtime
+```sh
+ source tools/dev.sh
+```
 #### 03\. Enable host for OpenWRT LXD VFW
 ```sh
- ./gateway-setup -i hosts.yml
+ cd ./lab && ./gateway-setup.yml -vv
 ```
 #### 04\. Exit IaC Engine
 ```sh
