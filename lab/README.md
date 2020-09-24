@@ -22,19 +22,23 @@ on modest hardware via the linux hypervisor layers {{ [libvirt],[kvm],[qemu] }}
 ```
 --------------------------------------------------------------------------------
 ## Build Hypervisor on Linux
-#### 01\. Execute Into IaC Engine Container Runtime
-```sh
- source tools/dev.sh
-```
-#### 02\. Start TMUX session for safety
+#### 01\. Start TMUX session for safety
 ```sh
  tmux
 ```
+#### 02\. Execute Into IaC Engine Container Runtime
+```sh
+ source tools/dev.sh
+```
 #### 03\. Run Hypervisor Setup Playbook
 ```sh
- cd lab && ./libvirt.yml
+ cd /root/devkit/lab && ./network-setup.yml -vv
 ```
-#### 04\. Exit IaC Engine
+#### 04\. SSH back & Run Hypervisor Setup Playbook
+```sh
+ cd /root/devkit/lab && ./hypervisor-setup.yml -vv
+```
+#### 05\. Exit IaC Engine
 ```sh
  exit
 ```
