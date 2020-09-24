@@ -4,7 +4,12 @@
   become: true
   gather_facts: yes
   vars_files:
-    - vars/defaults.yml
+    - vars/global.yml
+
+  roles:
+    - role: lxd
+      tags: lxd
+
   tasks:
     - name: Gateway - Build Profile
       lxd_profile:

@@ -24,8 +24,5 @@
     - role: grub
       tags: grub
 
-    - role: lxd
-      tags: lxd
-
     - role: wireguard
       tags: wg
