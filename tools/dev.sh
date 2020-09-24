@@ -4,7 +4,7 @@ sudo rm -rf /tmp/.ssh /tmp/.gitconfig /tmp/.bashrc
 cp -rf ~/.ssh ~/.gitconfig ~/.bashrc /tmp/
 sudo podman run -it --rm --pull always \
     -h devkit --name devkit \
-    --entrypoint bash --privileged \
+    --entrypoint connect --privileged \
     --volume /tmp/.ssh:/root/.ssh:z \
     --volume /tmp/.bashrc:/root/.bashrc:z \
     --volume /tmp/.gitconfig:/root/.gitconfig:z \
