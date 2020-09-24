@@ -23,7 +23,7 @@ git clone git@github.com:CodeSparta/devkit.git -b master ~/Sparta/devkit && cd ~
 ## Part 01 -- Build Hypervisor on Linux
 #### 01\. Execute Into IaC Engine Container Runtime
 ```sh
- source tools/dev.sh
+ source ../tools/dev.sh
 ```
 #### 02\. Run Hypervisor Setup Playbook
 ```sh
@@ -37,7 +37,7 @@ git clone git@github.com:CodeSparta/devkit.git -b master ~/Sparta/devkit && cd ~
 ## [OPTIONAL] Part 02 -- Build Virtual Firewall & Gateway
 #### 01\. Execute Into IaC Engine Container Runtime
 ```sh
- source tools/dev.sh
+ source ../tools/dev.sh
 ```
 #### 02\. Build OpenWRT VFW Container Image
 ```sh
