@@ -60,18 +60,22 @@ on modest hardware via the linux hypervisor layers {{ [libvirt],[kvm],[qemu] }}
 ```sh
  exit
 ```
-#### 05\. Build Gateway Container
+#### 05\. Reload environment
+```sh
+ bash
+```
+#### 06\. Build Gateway Container
 ```sh
  lxc image import /tmp/openwrt/openwrt-19.07.4-x86-64-lxd.tar.gz --alias openwrt/19.07.4/x86_64
  lxc init openwrt/19.07.4/x86_64 gateway -p openwrt
  lxc file push -r /tmp/openwrt/config gateway/etc/
 ```
-#### 06\. Start Gateway and monitor for IPv4 Address
+#### 07\. Start Gateway and monitor for IPv4 Address
 ```sh
  lxc start gateway
  watch -c lxc list
 ```
-#### 07\. Set password before logging in on WebUI
+#### 08\. Set password before logging in on WebUI
 ```sh
  lxc exec gateway passwd
 ```
