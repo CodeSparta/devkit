@@ -26,11 +26,15 @@ on modest hardware via the linux hypervisor layers {{ [libvirt],[kvm],[qemu] }}
 ```sh
  source tools/dev.sh
 ```
-#### 02\. Run Hypervisor Setup Playbook
+#### 02\. Start TMUX session for safety
+```sh
+ tmux
+```
+#### 03\. Run Hypervisor Setup Playbook
 ```sh
  cd lab && ./libvirt.yml
 ```
-#### 03\. Exit IaC Engine
+#### 04\. Exit IaC Engine
 ```sh
  exit
 ```
