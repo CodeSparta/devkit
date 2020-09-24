@@ -32,11 +32,11 @@ on modest hardware via the linux hypervisor layers {{ [libvirt],[kvm],[qemu] }}
 ```
 #### 03\. Run Hypervisor Setup Playbook
 ```sh
- cd /root/devkit/lab && ./network-setup.yml -vv
+ cd ./lab && ./network-setup.yml -vv
 ```
 #### 04\. SSH back & Run Hypervisor Setup Playbook
 ```sh
- cd /root/devkit/lab && ./hypervisor-setup.yml -vv
+ cd ./lab && ./hypervisor-setup.yml -vv
 ```
 #### 05\. Exit IaC Engine
 ```sh
