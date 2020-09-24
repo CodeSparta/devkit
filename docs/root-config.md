@@ -9,6 +9,9 @@ step 2:
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys && chmod 644 ~/.ssh/authorized_keys
 
 ```
+then
+
+```
 chown root -R /root/.ssh
 chmod 600 /root/.ssh/id_rsa
 chmod 644 /root/.ssh/authorized_keys
