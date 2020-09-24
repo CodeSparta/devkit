@@ -21,9 +21,9 @@ config interface 'lan'
 	option netmask '255.255.255.0'
 	option dns '10.10.10.1'
 
-config interface 'ocpministack'
+config interface 'sparta'
 	option proto 'static'
 	option ifname 'eth2'
-	option ipaddr '{{ ministack_gateway_address_eth2 }}'
+	option ipaddr '172.10.0.1'
 	option netmask '255.255.0.0'
 
