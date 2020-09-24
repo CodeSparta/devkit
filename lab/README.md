@@ -4,6 +4,7 @@
 2. [Podman](https://podman.io/getting-started/installation.html) installed
 3. [~/.gitconfig](https://github.com/CodeSparta/devkit/blob/master/docs/gitconfig.md)
 4. There is no critical data on the hypervisor system
+5. Run all cmds as root
     
 ## Intro:    
 These playbooks represent rough Sparta developer enablement tools and should be
@@ -17,17 +18,17 @@ on modest hardware via the linux hypervisor layers {{ [libvirt],[kvm],[qemu] }}
 ## Instructions:
 #### 00\. Clone the Devkit Repository
 ```sh
-git clone git@github.com:CodeSparta/devkit.git -b master ~/Sparta/devkit && cd ~/Sparta/devkit/lab
+git clone git@github.com:CodeSparta/devkit.git -b master /root/devkit && cd /root/devkit
 ```
 --------------------------------------------------------------------------------
 ## Build Hypervisor on Linux
 #### 01\. Execute Into IaC Engine Container Runtime
 ```sh
- source ../tools/dev.sh
+ source tools/dev.sh
 ```
 #### 02\. Run Hypervisor Setup Playbook
 ```sh
- ./libvirt.yml
+ cd lab && ./libvirt.yml
 ```
 #### 03\. Exit IaC Engine
 ```sh
@@ -37,7 +38,7 @@ git clone git@github.com:CodeSparta/devkit.git -b master ~/Sparta/devkit && cd ~
 ## [OPTIONAL] Build Virtual Firewall & Gateway
 #### 01\. Execute Into IaC Engine Container Runtime
 ```sh
- source ../tools/dev.sh
+ source tools/dev.sh
 ```
 #### 02\. Build OpenWRT VFW Container Image
 ```sh

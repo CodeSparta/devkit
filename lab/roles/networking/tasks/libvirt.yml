@@ -29,17 +29,17 @@
   virt_net:
     command: define
     name: default
-    xml: "{{ '{{ dir_libvirt }}' + '/hypervisor/ansible/templates/libvirt/default.xml' }}"
+    xml: "{{ '{{ dir_libvirt }}' + '/templates/libvirt/default.xml' }}"
 - name: Define OVS Bridge 'internal' from .xml
   virt_net:
     command: define
     name: internal
-    xml: "{{ '{{ dir_libvirt }}' + '/hypervisor/ansible/templates/libvirt/internal.xml' }}"
+    xml: "{{ '{{ dir_libvirt }}' + '/templates/libvirt/internal.xml' }}"
 - name: Define OVS Bridge 'ocp' from .xml
   virt_net:
     command: define
     name: sparta
-    xml: "{{ '{{ dir_libvirt }}' + '/hypervisor/ansible/templates/libvirt/sparta.xml' }}"
+    xml: "{{ '{{ dir_libvirt }}' + '/templates/libvirt/sparta.xml' }}"
 - name: Define OVS Bridge 'ocp' from .xml
   virt_net:
     autostart: yes
