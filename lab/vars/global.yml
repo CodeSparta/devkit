@@ -10,4 +10,4 @@ local_pwd: "{{ lookup('env', 'PWD') }}"
 local_home: "{{ lookup('env', 'HOME') }}"
 
 dir_devkit: "{{ local_home }}/platform/iac/devkit"
-dir_libvirt: "{{ local_devkit }}/lab"
+dir_libvirt: "{{ dir_devkit }}"
