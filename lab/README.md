@@ -36,7 +36,7 @@ on modest hardware via the linux hypervisor layers {{ [libvirt],[kvm],[qemu] }}
 ```
 #### 04\. SSH back & Run Hypervisor Setup Playbook
 ```sh
- cd ./lab && ./hypervisor-setup.yml -vv
+ ./hypervisor-setup.yml -vv
 ```
 #### 05\. Exit IaC Engine
 ```sh
