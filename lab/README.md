@@ -18,7 +18,7 @@ on modest hardware via the linux hypervisor layers {{ [libvirt],[kvm],[qemu] }}
 ## Instructions:
 #### 00\. Clone the Devkit Repository
 ```sh
-git clone git@github.com:CodeSparta/devkit.git -b master /root/devkit && cd /root/devkit
+ git clone https://github.com/CodeSparta/devkit.git -b master /root/devkit && cd /root/devkit
 ```
 --------------------------------------------------------------------------------
 ## Build Hypervisor on Linux
