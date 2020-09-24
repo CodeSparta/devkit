@@ -20,7 +20,7 @@ on modest hardware via the linux hypervisor layers {{ [libvirt],[kvm],[qemu] }}
 git clone git@github.com:CodeSparta/devkit.git -b master ~/Sparta/devkit && cd ~/Sparta/devkit/lab
 ```
 --------------------------------------------------------------------------------
-## Part 01 -- Build Hypervisor on Linux
+## Build Hypervisor on Linux
 #### 01\. Execute Into IaC Engine Container Runtime
 ```sh
  source ../tools/dev.sh
@@ -34,7 +34,7 @@ git clone git@github.com:CodeSparta/devkit.git -b master ~/Sparta/devkit && cd ~
  exit
 ```
 --------------------------------------------------------------------------------
-## [OPTIONAL] Part 02 -- Build Virtual Firewall & Gateway
+## [OPTIONAL] Build Virtual Firewall & Gateway
 #### 01\. Execute Into IaC Engine Container Runtime
 ```sh
  source ../tools/dev.sh
