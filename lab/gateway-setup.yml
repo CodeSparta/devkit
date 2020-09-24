@@ -1,4 +1,4 @@
-#!/bin/ansible-playbook --inventory=inventory
+#!/usr/local/bin/ansible-playbook --inventory=inventory
 - name: ContainerCraft.io OpenWRT VFW Gateway LXD Container
   hosts: libvirt
   become: true
@@ -40,10 +40,12 @@
             path: /
             pool: default
             type: disk
+
     - name: Gateway - Prep OpenWRT Configuration (stage dir)
       file:
         path: /tmp/openwrt/config
         state: directory
+
     - name: Template files
       template:
         src: '{{ item.src }}'
