@@ -1,4 +1,7 @@
 all:
   hosts:
     libvirt:
-      ansible_connection: local
+      ansible_port: 22
+      ansible_user: root
+      ansible_host: 10.88.0.1
+      ansible_connection: ssh
