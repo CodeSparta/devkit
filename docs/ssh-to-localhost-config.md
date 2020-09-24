@@ -18,7 +18,7 @@ chmod 644 /root/.ssh/authorized_keys
 
 ```
 
-### restart the ssh daemon
+### Restart the ssh daemon
 
 ```
 systemctl restart sshd

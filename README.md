@@ -4,6 +4,7 @@ Developer & Troubleshooting Tools
 ### Requires:
   1. [Podman](https://podman.io/getting-started/installation.html)
   2. [~/.gitconfig](https://github.com/CodeSparta/devkit/blob/master/docs/gitconfig.md)
+  3. ['SSH-to-localhost' Configured](https://github.com/CodeSparta/devkit/blob/master/docs/root-config.md)
 
 ### Clone Devkit Repo
 ```
