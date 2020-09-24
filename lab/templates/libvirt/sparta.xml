@@ -1,6 +1,6 @@
 <network>
-  <name>ocp-mini-stack</name>
+  <name>sparta</name>
   <forward mode='bridge'/>
-  <bridge name='ocp-mini-stack' />
+  <bridge name='sparta' />
   <virtualport type='openvswitch'/>
 </network>

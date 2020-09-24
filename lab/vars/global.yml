@@ -11,3 +11,7 @@ local_home: "{{ lookup('env', 'HOME') }}"
 
 dir_devkit: "{{ local_home }}/platform/iac/devkit"
 dir_libvirt: "{{ dir_devkit }}"
+
+external_host_address: "{{ ansible_default_ipv4.address }}"
+external_gateway_address: "{{ ansible_default_ipv4.gateway }}"
+external_host_interface: "{{ ansible_default_ipv4.interface }}"

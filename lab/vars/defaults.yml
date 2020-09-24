@@ -4,9 +4,6 @@ ministack_hostname_bastion: cloudctl.ministack.dev
 ansible_name: " CodeSparta"
 ministack_hostname_base: base.ministack.dev
 github_username: "{{ git_ssh_pubkey_username }}"
-external_host_address: "{{ ansible_default_ipv4.address }}"
-external_gateway_address: "{{ ansible_default_ipv4.gateway }}"
-external_host_interface: "{{ ansible_default_ipv4.interface }}"
 
 ministack_username: "{{ lookup('env', 'ministack_UNAME') }}"
 msio_int_subnet: "{{ lookup('env', 'int_ministack_SUBNET') }}"

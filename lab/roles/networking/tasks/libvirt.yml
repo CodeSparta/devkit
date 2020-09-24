@@ -24,22 +24,22 @@
   virt_net:
     command: define
     name: external
-    xml: "{{ dir_libvirt }}/templates/libvirt/external.xml"
+    xml: '{{ lookup("template", "libvirt/external.xml") }}'
 - name: Build Networking Components - Libvirt Networks
   virt_net:
     command: define
     name: default
-    xml: "{{ dir_libvirt }}/templates/libvirt/default.xml"
+    xml: '{{ lookup("template", "libvirt/default.xml") }}'
 - name: Define OVS Bridge 'internal' from .xml
   virt_net:
     command: define
     name: internal
-    xml: "{{ dir_libvirt }}/templates/libvirt/internal.xml"
-- name: Define OVS Bridge 'ocp' from .xml
+    xml: '{{ lookup("template", "libvirt/internal.xml") }}'
+- name: Define OVS Bridge 'sparta' from .xml
   virt_net:
     command: define
     name: sparta
-    xml: "{{ dir_libvirt }}/templates/libvirt/sparta.xml"
+    xml: '{{ lookup("template", "libvirt/sparta.xml") }}'
 - name: Define OVS Bridge 'ocp' from .xml
   virt_net:
     autostart: yes
