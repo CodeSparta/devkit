@@ -1,5 +1,0 @@
-dns_servers:
-  - 8.8.8.8
-  - 8.8.4.4
-ifcfg_interface: eno1
-static_dhcp: dhcp 

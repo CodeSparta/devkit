@@ -1,6 +1,0 @@
-<network>
-  <name>sparta</name>
-  <forward mode='bridge'/>
-  <bridge name='sparta' />
-  <virtualport type='openvswitch'/>
-</network>

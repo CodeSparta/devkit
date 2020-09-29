@@ -1,2 +1,0 @@
-#!/bin/ansible-playbook
-- name: Stand up ocp-mini-stack infrastructure podman containers in the cloudctl bastion

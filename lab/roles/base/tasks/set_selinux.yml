@@ -1,7 +1,0 @@
----
-# Set Selinux State
-- name: Set Selinux "{{ selinux_state }}" 
-  become: yes
-  selinux:
-    policy: "{{ selinux_policy }}"
-    state: "{{ selinux_state }}"

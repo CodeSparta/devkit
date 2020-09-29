@@ -1,4 +1,0 @@
----
-- include: networkd.yml
-- include: libvirt.yml
-- include: openvswitch.yml

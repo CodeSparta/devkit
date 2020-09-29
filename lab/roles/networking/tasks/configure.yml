@@ -1,7 +1,0 @@
----
-- name: Enable & Start OpenVSwitch Service
-  become: yes
-  service:
-    name: openvswitch
-    state: started
-    enabled: yes

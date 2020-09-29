@@ -1,3 +1,0 @@
----
-lxd_users:
-  - "{{ ministack_username }}"
