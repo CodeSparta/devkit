@@ -5,7 +5,7 @@
 3. [~/.gitconfig](https://github.com/CodeSparta/devkit/blob/master/docs/gitconfig.md) configured with token auth
 4. There is no critical data on the hypervisor system
 5. Run all cmds as root
-6. Configure root to be able to ssh to itself [root-config.md](https://github.com/CodeSparta/devkit/blob/master/docs/root-config.md)
+6. Configure root to be able to ssh to itself [SSH to localhost](https://github.com/CodeSparta/devkit/blob/master/docs/ssh-to-localhost-config.md)
     
 ## Intro:    
 These playbooks represent rough Sparta developer enablement tools and should be
