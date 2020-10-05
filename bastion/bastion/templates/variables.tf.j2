@@ -1,0 +1,16 @@
+{% for v in tf_variables %}
+{% if v.name == 'volume_size' %}
+variable "{{ v.name }}" {
+  description 	= "{{ v.description }}"
+  default	= {{ v.default }}
+}
+
+{% else %}
+variable "{{ v.name }}" {
+  description 	= "{{ v.description }}"
+  default	= "{{ v.default }}"
+}
+
+{% endif %}
+
+{% endfor %}

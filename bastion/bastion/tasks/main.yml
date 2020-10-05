@@ -1,0 +1,51 @@
+- name: AWS | Collect VPC Information
+  block:
+    - name: aws_import | Collect VPC Information | VPC_ID
+      ec2_vpc_net_info:
+        filters:
+          "tag:Name": "DEFAULT"
+      register: clustervpc
+    - set_fact:
+        vpc_id: "{{ clustervpc.vpcs[0].id }}"
+
+    - name: AWS | Find the AMI for the latest RHEL8 image
+      ec2_ami_info:
+        filters:
+          name: "RHEL-8.1.0_HVM-*"
+      register: ami
+    
+    - name: AWS | Define AMI fact
+      set_fact:
+        bastion_ami_id: "{{ ami.images[0].image_id }}"
+
+- name: bastion | Terraform Stage
+  block:
+    - name: bastion | create terraform directory 
+      file:
+        state: directory
+        path: "{{ terraform_dir }}"
+ 
+    - name: bastion | create terraform configurations from template
+      template:
+        src: "{{ item.src }}"
+        dest: "{{ item.dest }}"
+      loop:
+        - { src: 'variables.tf.j2', dest: '{{ terraform_dir }}/variables.tf' }
+        - { src: 'bastion.tf.j2', dest: '{{ terraform_dir }}/bastion.tf' }
+    
+    - name: bastion | run terraform to provision the resources
+      terraform:
+        project_path: "{{ terraform_dir }}"
+        force_init: true
+        state: present
+
+- name: bastion | post configuration stage
+  block:
+    - name: bastion | place public_ip in localfile for later consumption
+      copy:
+        force: yes
+        dest: "{{ terraform_dir}}/public_ip.txt"
+        content: "{{ lookup('pipe','cd {{ terraform_dir }} && terraform output bastion_public_ip') }}"
+
+    - name: bastion | reboot machine after system update
+      reboot:

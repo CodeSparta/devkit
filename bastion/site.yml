@@ -1,0 +1,5 @@
+- name: bastion | provision bastion node
+  hosts: localhost
+  gather_facts: false
+  roles:
+    - role: ./bastion
