@@ -1,5 +1,5 @@
 #Set the environment to one of aws, c1d, azure, mag
-environment: 'c1d'
+cloud: 'c1d'
 vpc_name: "{{ vpc_name }}"
 tf_variables:
 - name: aws_region

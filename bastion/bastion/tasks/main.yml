@@ -1,4 +1,4 @@
-- name: "devkit-bastion | {{ environment }}  | Collect environment Information"
+- name: "devkit-bastion | {{ cloud }}  | Collect environment Information"
   block:
     - name: devkit-bastion | Stage_VPC Lookup | Query VPC Facts 
       ec2_vpc_net_info:
@@ -33,7 +33,7 @@
       set_fact:
         subnet_id: "{{ common_subnet_info.subnets[0].id }}"
 
-- name: devkit-bastion | {{ environment }} | Collect AMI information
+- name: devkit-bastion | {{ cloud }} | Collect AMI information
   block:
     - name: devkit-bastion | Stage_Image Lookup | Find the AMI for the latest RHEL8 image
       ec2_ami_info:
@@ -45,7 +45,7 @@
       set_fact:
         bastion_ami_id: "{{ ami.images[0].image_id }}"
 
-- name: devkit-bastion | {{ environment }} | Terraform Deployment
+- name: devkit-bastion | {{ cloud }} | Terraform Deployment
   block:
     - name: devkit-bastion | Stage_Terraform | Create terraform directory 
       file:
@@ -67,10 +67,10 @@
         force_init: true
         state: present
 
-#- name: devkit-bastion | {{ environment }} | Generate deployment artifacts
-#  block:
-#    - name: devkit-bastion | Stage_Post-Config | Generate file with public ip
-#      copy:
-#        force: yes
-#        dest: "{{ terraform_dir}}/public_ip.txt"
-#        content: "{{ lookup('pipe','cd {{ terraform_dir }} && terraform output bastion_public_ip') }}"
+- name: devkit-bastion | {{ cloud }} | Generate deployment artifacts
+  block:
+    - name: devkit-bastion | Stage_Post-Config | Generate file with public ip
+      copy:
+        force: yes
+        dest: "{{ terraform_dir}}/public_ip.txt"
+        content: "{{ lookup('pipe','cd {{ terraform_dir }} && terraform output bastion_public_ip') }}"
