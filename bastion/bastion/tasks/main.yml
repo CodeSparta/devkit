@@ -1,6 +1,7 @@
 - name: devkit-bastion | Install Terraform
   import_task: terraform.yml
   when: install_terraform 
+
 - name: devkit-bastion | Provision Bastion Instance
   import_task: provision_bastion.yml
 
