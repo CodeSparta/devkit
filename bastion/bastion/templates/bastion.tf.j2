@@ -4,6 +4,7 @@ provider "aws" {
 
 resource "aws_security_group" "bastion_sg" {
   name 		= var.bastion_security_group_name
+  vpc_id        = var.vpc_id
   
   ingress {
     from_port	= 22
@@ -28,6 +29,7 @@ resource "aws_instance" "bastion" {
   ami		= var.bastion_ami_id
   instance_type	= var.bastion_instance_type
   associate_public_ip_address	= true
+  subnet_id = var.bastion_subnet_id
   
   tags		= {
     Name	= var.bastion_name

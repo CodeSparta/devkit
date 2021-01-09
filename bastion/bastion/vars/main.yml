@@ -1,16 +1,20 @@
+vpc_name: "{{ vpc_name }}"
 tf_variables:
 - name: aws_region
   description: "AWS Region to provision resources"
   default: us-gov-west-1
 - name: vpc_id
-  description: "Default VPC information"
+  description: "VPC information"
   default: "{{ vpc_id }}"
 - name: bastion_name
   description: "Bastion instance name"
-  default: ""
+  default: "{{ vpc_name }}-bastion"
 - name: bastion_security_group_name
   description: "Bastion Security Group name"
-  default: ""
+  default: "{{ vpc_name }}-bastion-sg"
+- name: bastion_subnet_id
+  description: "Bastion Subnet ID"
+  default: "{{ subnet_id }}"
 - name: bastion_ami_id
   description: "AMI ID for RHEL8 image"
   default: "{{ bastion_ami_id }}"
@@ -22,11 +26,11 @@ tf_variables:
   default: ""
 - name: ssh_private_key_path
   description: "Path of the ssh private key"
-  default: ""
+  default: "~/.ssh/id_rsa"
 - name: ssh_user
   description: "SSH User to access instance"
   default: ec2-user
 - name: volume_size
   description: "Volume size for the bastion node"
   default: 120
-terraform_dir: ""
+terraform_dir: "/tmp/terraform"
