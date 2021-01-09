@@ -33,8 +33,7 @@ credentials in `~/.aws/credentials` to gather:
 
 Then based off the variable inputs, ansible will generate the variables.tf file which is used
 directly by the bastion.tf file for provisioning the ec2 resource and its associated security group.
-Terraform is using a remote-exec provisioner to install the prerequisite packages on the node, and 
-then running a `dnf update -y` against that machine. 
+Terraform then uses cloud-init via user_data template to update and install podman, vim and git. 
 
 Finally, ansible is parsing the state from terraform to generate a local file with the public ip 
 address to simplify the accessibility of the ec2 instance.
