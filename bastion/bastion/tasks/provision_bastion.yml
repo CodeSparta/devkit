@@ -1,0 +1,76 @@
+- name: "devkit-bastion | {{ cloud }}  | Collect environment Information"
+  block:
+    - name: devkit-bastion | Stage_VPC Lookup | Query VPC Facts 
+      ec2_vpc_net_info:
+      register: clustervpc
+
+    - name: devkit-bastion | Stage_VPC Lookup | Set vpc_id fact 
+      set_fact:
+        vpc_id: "{{ clustervpc.vpcs[0].id }}"
+
+    - name: devkit-bastion | Stage_VPC Lookup | Set vpc_name fact
+      set_fact:
+        vpc_name: "{{ clustervpc.vpcs[0].tags.Name }}"
+
+    - name: devkit-bastion | Stage_Subnet Lookup | Subnet Facts
+      ec2_vpc_subnet_info:
+      register: common_net_info
+
+    - name: devkit-bastion | Stage_Subnet Lookup | Set fact for Subnet 
+      set_fact:
+        common_subnet: "{{ common_subnet |default ([]) }} + [ '{{ item.tags['Name'] }}' ]"
+      with_items:
+         - "{{ common_net_info.subnets }}"
+      when: "'CommonA' in item.tags['Name']"
+
+    - name: devkit-bastion | Stage_Subnet Lookup | Get subnet name
+      ec2_vpc_subnet_info:
+        filters:
+          "tag:Name": '{{ common_subnet }}'
+      register: common_subnet_info
+
+    - name: devkit-bastion | Stage_Subnet Lookup | Set subnet-id fact
+      set_fact:
+        subnet_id: "{{ common_subnet_info.subnets[0].id }}"
+
+- name: devkit-bastion | {{ cloud }} | Collect AMI information
+  block:
+    - name: devkit-bastion | Stage_Image Lookup | Find the AMI for the latest RHEL8 image
+      ec2_ami_info:
+        filters:
+          name: "RHEL-8.1.0_HVM-*"
+      register: ami
+    
+    - name: devkit-bastion | Stage_Image Lookup | Define AMI fact
+      set_fact:
+        bastion_ami_id: "{{ ami.images[0].image_id }}"
+
+- name: devkit-bastion | {{ cloud }} | Terraform Deployment
+  block:
+    - name: devkit-bastion | Stage_Terraform | Create terraform directory 
+      file:
+        state: directory
+        path: "{{ terraform_dir }}"
+ 
+    - name: devkit-bastion | Stage_Terraform | Generate terraform configurations
+      template:
+        src: "{{ item.src }}"
+        dest: "{{ item.dest }}"
+      loop:
+        - { src: 'variables.tf.j2', dest: '{{ terraform_dir }}/variables.tf' }
+        - { src: 'bastion.tf.j2', dest: '{{ terraform_dir }}/bastion.tf' }
+        - { src: 'cloudinit.tpl.j2', dest: '{{ terraform_dir }}/cloudinit.tpl' }
+    
+    - name: devkit-bastion | Stage_Terraform | Provision terraform resources
+      terraform:
+        project_path: "{{ terraform_dir }}"
+        force_init: true
+        state: present
+
+- name: devkit-bastion | {{ cloud }} | Generate deployment artifacts
+  block:
+    - name: devkit-bastion | Stage_Post-Config | Generate file with public ip
+      copy:
+        force: yes
+        dest: "{{ terraform_dir}}/public_ip.txt"
+        content: "{{ lookup('pipe','cd {{ terraform_dir }} && terraform output bastion_public_ip') }}"
