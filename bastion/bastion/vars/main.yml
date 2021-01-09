@@ -1,5 +1,7 @@
 #Set the environment to one of aws, c1d, azure, mag
-cloud: 'c1d'
+terraform_install: true
+software_install_directory: /tmp/
+cloud: c1d
 vpc_name: "{{ vpc_name }}"
 tf_variables:
 - name: aws_region
