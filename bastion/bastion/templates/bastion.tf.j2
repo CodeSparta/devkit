@@ -30,6 +30,7 @@ resource "aws_instance" "bastion" {
   instance_type	= var.bastion_instance_type
   associate_public_ip_address	= true
   subnet_id = var.bastion_subnet_id
+  user_data = data.template_file.deploy.rendered
   
   tags		= {
     Name	= var.bastion_name
@@ -43,20 +44,12 @@ resource "aws_instance" "bastion" {
     volume_size			= var.volume_size
     volume_type			= "standard"
   }
-  provisioner "remote-exec" {
-    inline	= [
-      "sudo dnf install -y podman git vim",
-      "sudo dnf update -y"
-    ]
-
-    connection {
-      type		= "ssh"
-      user		= var.ssh_user
-      private_key	= file(var.ssh_private_key_path)
-      host		= self.public_ip
-    }
-   }
 }
+
+data "template_file" "deploy" {
+  template = "${file("cloudinit.tpl")}" 
+}
+
 output "bastion_public_ip" {
   value = aws_instance.bastion.public_ip
 }

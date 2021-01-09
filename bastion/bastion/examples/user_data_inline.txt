@@ -1,0 +1,8 @@
+resource "aws_instance" "ec2" {
+... omitted ...
+  user_data=<<-EOF
+            #!/bin/bash
+            dnf update -y
+            dnf install vim git podman -y
+            EOF
+}

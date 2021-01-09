@@ -1,5 +1,5 @@
 #Set the environment to one of aws, c1d, azure, mag
-environment: c1d
+environment: 'c1d'
 vpc_name: "{{ vpc_name }}"
 tf_variables:
 - name: aws_region
@@ -25,7 +25,7 @@ tf_variables:
   default: t2.xlarge
 - name: bastion_public_ssh_key_name
   description: "Name of the public key to use"
-  default: ""
+  default: "rh-dev-blackpearl-us"
 - name: ssh_private_key_path
   description: "Path of the ssh private key"
   default: "~/.ssh/id_rsa"

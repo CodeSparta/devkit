@@ -1,0 +1,17 @@
+resource "aws_instance" "ec2" {
+... omitted ...
+
+  provisioner "remote-exec" {
+    inline	= [
+      "sudo dnf install -y podman git vim",
+      "sudo dnf update -y"
+    ]
+
+    connection {
+      type		= "ssh"
+      user		= var.ssh_user
+      private_key	= file(var.ssh_private_key_path)
+      host		= self.public_ip
+    }
+   }
+}
