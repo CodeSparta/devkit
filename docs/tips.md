@@ -1,6 +1,6 @@
 ### Make cluster apps routeable on local device
 ```
-sshuttle --dns --ssh-cmd  'ssh -i ~/.ssh/${keyname}' -r ec2-user@${public_ip} --exclude ${public_ip}/32 0.0.0.0/0 &
+sshuttle --dns --ssh-cmd  "ssh -i ~/.ssh/${keyname}" -r ec2-user@${public_ip} --exclude ${public_ip}/32 0.0.0.0/0 &
 ```
 ### Add container browser to docker registry service
 ```
