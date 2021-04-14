@@ -1,4 +1,9 @@
 ### Make cluster apps routeable on local device
+On AWS bastion
+```
+sudo dnf install python3
+```
+On your workstation (package available in fedora repos and epel8)
 ```
 sshuttle --dns --ssh-cmd  "ssh -i ~/.ssh/${keyname}" -r ec2-user@${public_ip} --exclude ${public_ip}/32 0.0.0.0/0 &
 ```
